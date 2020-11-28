@@ -16,4 +16,8 @@
         <Description>Let your app run automatically at startup in Windows.</Description>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    </ItemGroup>
+
 </Project>
