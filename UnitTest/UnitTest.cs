@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RunAtStartup;
 using RunAtStartup.Enums;
-using System.Security;
 
 namespace UnitTest
 {
@@ -28,14 +27,12 @@ namespace UnitTest
 			const string key = @"RunAtStartup.LocalMachineTest";
 			var service = new StartupService(key, StartupType.LocalMachine);
 			Assert.IsFalse(service.Check());
-			Assert.ThrowsException<SecurityException>(() =>
-			{
-				service.Set(@"1919810");
-			});
-			Assert.ThrowsException<SecurityException>(() =>
-			{
-				service.Delete();
-			});
+
+			service.Set(@"1919810");
+			Assert.IsTrue(service.Check());
+
+			service.Delete();
+			Assert.IsFalse(service.Check());
 		}
 	}
 }

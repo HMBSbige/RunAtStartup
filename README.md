@@ -9,6 +9,7 @@ NuGet.org | [![NuGet.org](https://img.shields.io/nuget/v/RunAtStartup.svg)](http
 ```csharp
 const string key = @"MyApp";
 var service = new StartupService(key);
+// var service = new StartupService(key, StartupType.LocalMachine));
 
 var isSet = service.Check();
 
