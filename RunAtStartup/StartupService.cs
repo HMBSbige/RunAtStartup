@@ -1,7 +1,6 @@
 using Microsoft.Win32;
 using RunAtStartup.Enums;
 using System;
-using System.Linq;
 
 namespace RunAtStartup
 {
@@ -25,7 +24,7 @@ namespace RunAtStartup
 			return RegistryKey.OpenBaseKey(hive, view).OpenSubKey(name, writable);
 		}
 
-		public bool Check()
+		public bool Check(string data)
 		{
 			using var runKey = OpenRegKey(RegistryRunPath, false);
 			if (runKey is null)
@@ -33,9 +32,14 @@ namespace RunAtStartup
 				throw new SystemException(@"Cannot open Registry!");
 			}
 
-			var runList = runKey.GetValueNames();
+			var value = runKey.GetValue(Key);
 
-			return runList.Any(item => item == Key);
+			if (value is not string str)
+			{
+				return false;
+			}
+
+			return str == data;
 		}
 
 		public void Set(string data)
@@ -56,7 +60,14 @@ namespace RunAtStartup
 				throw new SystemException(@"Cannot open Registry!");
 			}
 
-			runKey.DeleteValue(Key);
+			try
+			{
+				runKey.DeleteValue(Key);
+			}
+			catch (ArgumentException)
+			{
+				// No value exists with that name.
+			}
 		}
 	}
 }
