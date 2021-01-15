@@ -1,23 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFrameworks>net5.0-windows;netcoreapp3.1;netstandard2.0</TargetFrameworks>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <Copyright>Copyright © HMBSbige 2020</Copyright>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Authors>HMBSbige</Authors>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/HMBSbige/RunAtStartup</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/HMBSbige/RunAtStartup</RepositoryUrl>
-        <PackageTags>windows startup</PackageTags>
-        <Version>5.0.0</Version>
-        <PackageId>RunAtStartup</PackageId>
-        <Description>Let your app run automatically at startup in Windows.</Description>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>net5.0-windows;netcoreapp3.1;netstandard2.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Copyright>Copyright © 2020 - 2021 HMBSbige</Copyright>
+    <NoWarn>CS1591</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>HMBSbige</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/HMBSbige/RunAtStartup</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HMBSbige/RunAtStartup</RepositoryUrl>
+    <PackageTags>windows startup</PackageTags>
+    <Version>5.0.2</Version>
+    <PackageId>RunAtStartup</PackageId>
+    <Description>Let your app run automatically at startup in Windows.</Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+  </ItemGroup>
 
 </Project>
